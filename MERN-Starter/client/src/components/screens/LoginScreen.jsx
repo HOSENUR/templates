@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./LoginScreen.css";
 
-const LoginScreen = ({ history }) => {
+const LoginScreen = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/");
+      navigate("/");
     }
   }, [history]);
 
@@ -25,14 +26,14 @@ const LoginScreen = ({ history }) => {
 
     try {
       const { data } = await axios.post(
-        "/api/auth/login",
+        "http://localhost:5000/api/auth/login",
         { email, password },
         config
       );
 
       localStorage.setItem("authToken", data.token);
 
-      history.push("/");
+      navigate("/");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {
