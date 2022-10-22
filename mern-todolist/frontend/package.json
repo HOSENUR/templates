@@ -13,6 +13,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@reduxjs/toolkit": "^1.8.6",
     "axios": "^0.27.2",
     "jwt-decode": "^3.1.2",
     "mdb-react-ui-kit": "^4.1.0",
