@@ -1,10 +1,16 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {Counter, Posts} from './pages'
 import './App.css'
-import Counter from './components/Counter'
+
 export default function App() {
   return (
-    <div className='w-full h-screen flex items-center justify-center'>
-      <Counter/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path='/' element={<div>Home</div>} /> */}
+        <Route path='counter' element={<Counter/>} />
+        <Route path='posts' element={<Posts/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
